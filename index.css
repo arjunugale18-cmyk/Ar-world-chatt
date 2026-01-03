@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Instagram-inspired Palette */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 15%; /* #262626 */
+
+  --primary: 204 100% 48%; /* #0095f6 Blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 98%; /* Light gray for bubbles/backgrounds */
+  --secondary-foreground: 0 0% 15%;
+
+  --muted: 0 0% 86%; /* #dbdbdb border color */
+  --muted-foreground: 0 0% 55%; /* #8e8e8e secondary text */
+
+  --accent: 326 100% 48%; /* Pink accent for stickers/hearts */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 0 0% 86%; /* #dbdbdb */
+  --input: 0 0% 86%;
+  --ring: 204 100% 48%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-foreground antialiased selection:bg-primary/20;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-gray-900;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Animations */
+@keyframes message-pop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-message-pop {
+  animation: message-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
